@@ -1,15 +1,18 @@
 package a
 
-func case1(a int) {}
+func Case1(a int) {}
 
 type MyInt int
 
-func case2(b MyInt, c string) {}
+func Case2(b MyInt, c string) {}
 
-func case3(b []byte, ss string) {}
+func Case3(b []byte, ss string) {}
 
-func case4(e error) {}
+func Case4(e error) {}
 
 func Case5(b []byte) {}
 
-func hoge() {}
+//not generated because this function cannot be exported by other package
+func case6(b []byte) {}
+
+func Hoge() {}
