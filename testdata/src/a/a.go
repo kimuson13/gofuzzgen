@@ -9,3 +9,7 @@ func case2(b MyInt, c string) {}
 func case3(b []byte, ss []string) {}
 
 func case4(e error) {}
+
+func Case5(b []byte) {}
+
+func hoge() {}
