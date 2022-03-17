@@ -7,6 +7,7 @@ import (
 	"os"
 	"strings"
 	"text/template"
+	"unicode"
 
 	"github.com/gostaticanalysis/codegen"
 	"github.com/kimuson13/showfuzz"
@@ -41,7 +42,13 @@ func run(pass *codegen.Pass) error {
 	}
 
 	sfResults := pass.ResultOf[showfuzz.Analyzer].(*showfuzz.Results).Events
-	data := InputData{pass.Pkg.Name(), sfResults}
+	sfrExported := make([]showfuzz.Event, 0, len(sfResults))
+	for _, r := range sfResults {
+		if unicode.IsUpper(rune(r.Name[0])) {
+			sfrExported = append(sfrExported, r)
+		}
+	}
+	data := InputData{pass.Pkg.Name(), sfrExported}
 
 	t, err := template.New("fuzz").Parse(tmpl)
 	if err != nil {
