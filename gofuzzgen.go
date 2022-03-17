@@ -88,10 +88,12 @@ import "testing"
 
 {{ range $i, $v := .Fuzzables }}
 func Fuzz{{ $v.Name }}(f *testing.F) {
-	{{ if eq (len $v.Args) 1 -}}
-	// Add seed corpus into testcases
+	{{- if eq (len $v.Args) 1 -}}
 		{{- if (index $v.Args 0).IsByteArr }}
-			testcases := [][]{{ (index $v.Args 0).UnderlyingName }}{}
+			testcases := [][]{{ (index $v.Args 0).UnderlyingName }}{
+				// Add seed corpus here
+			}
+
 			for _, tc := range testcases {
 				f.Add(tc) // Use f.Add to provide a seed corpus
 			}
@@ -100,7 +102,9 @@ func Fuzz{{ $v.Name }}(f *testing.F) {
 				// implement fuzzing test code
 			})
 		{{ else }}
-			testcases := []{{ (index $v.Args 0).UnderlyingName }}{}
+			testcases := []{{ (index $v.Args 0).UnderlyingName }}{
+				// Add seed corpus here
+			}
 
 			for _, tc := range testcases {
 				f.Add(tc)
@@ -110,7 +114,22 @@ func Fuzz{{ $v.Name }}(f *testing.F) {
 				// implemnt fuzzing test code
 			})
 		{{ end }}
-	{{ else }}
+	{{ else -}}
+		testcases := []struct{
+			{{ range $vi, $va := $v.Args -}}
+				{{ if $va.IsByteArr -}}
+				arg{{ $vi }} []{{ $va.UnderlyingName}}
+				{{ else -}}
+				arg{{ $vi }} {{ $va.UnderlyingName }}
+				{{ end -}}
+			{{ end }}
+		}{
+			// Add seed corpus here
+		}
+
+		f.Fuzz(func(t *testing.T, {{ range $vi, $va := $v.Args}}org{{ $vi }} {{ if $va.IsByteArr }}[]{{ $va.UnderlyingName -}}{{ else }}{{ $va.UnderlyingName -}}{{ end }}, {{ end }}) {
+				// implemnt fuzzing test code
+			})
 	{{ end }}
 }
 {{ end }}

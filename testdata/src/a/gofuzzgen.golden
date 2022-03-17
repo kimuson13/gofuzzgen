@@ -5,8 +5,9 @@ package a_test
 import "testing"
 
 func FuzzCase1(f *testing.F) {
-	// Add seed corpus into testcases
-	testcases := []int{}
+	testcases := []int{
+		// Add seed corpus here
+	}
 
 	for _, tc := range testcases {
 		f.Add(tc)
@@ -19,12 +20,38 @@ func FuzzCase1(f *testing.F) {
 }
 
 func FuzzCase2(f *testing.F) {
+	testcases := []struct {
+		arg0 int
+		arg1 string
+	}{
+		// Add seed corpus here
+	}
+
+	f.Fuzz(func(t *testing.T, org0 int, org1 string) {
+		// implemnt fuzzing test code
+	})
+
+}
+
+func FuzzCase3(f *testing.F) {
+	testcases := []struct {
+		arg0 []byte
+		arg1 string
+	}{
+		// Add seed corpus here
+	}
+
+	f.Fuzz(func(t *testing.T, org0 []byte, org1 string) {
+		// implemnt fuzzing test code
+	})
 
 }
 
 func FuzzCase5(f *testing.F) {
-	// Add seed corpus into testcases
-	testcases := [][]byte{}
+	testcases := [][]byte{
+		// Add seed corpus here
+	}
+
 	for _, tc := range testcases {
 		f.Add(tc) // Use f.Add to provide a seed corpus
 	}
