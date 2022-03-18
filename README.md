@@ -76,13 +76,14 @@ import "testing"
 
 func FuzzCanFuzzFunc(f *testing.F) {
     testcases := []int{
-        // Add seed corpus here
         arg1 int
         arg2 int
+    }{
+        // Add seed corpus here
     }
 
     for _, tc := range testcases {
-        f.Add(tc)
+        f.Add(tc.arg1, tc.arg2)
     }
 
     f.Fuzz(func(t *testing.T, orig1 int, orig2 int) {
