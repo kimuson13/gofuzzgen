@@ -27,6 +27,10 @@ func FuzzCase2(f *testing.F) {
 		// Add seed corpus here
 	}
 
+	for _, tc := range testcases {
+		f.Add(tc.arg0, tc.arg1)
+	}
+
 	f.Fuzz(func(t *testing.T, org0 int, org1 string) {
 		// implemnt fuzzing test code
 	})
@@ -39,6 +43,10 @@ func FuzzCase3(f *testing.F) {
 		arg1 string
 	}{
 		// Add seed corpus here
+	}
+
+	for _, tc := range testcases {
+		f.Add(tc.arg0, tc.arg1)
 	}
 
 	f.Fuzz(func(t *testing.T, org0 []byte, org1 string) {

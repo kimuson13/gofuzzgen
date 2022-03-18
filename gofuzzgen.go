@@ -134,6 +134,10 @@ func Fuzz{{ $v.Name }}(f *testing.F) {
 			// Add seed corpus here
 		}
 
+		for _, tc := range testcases {
+			f.Add({{ range $vi, $va := $v.Args}}tc.arg{{ $vi }},{{ end }})
+		}
+
 		f.Fuzz(func(t *testing.T, {{ range $vi, $va := $v.Args}}org{{ $vi }} {{ if $va.IsByteArr }}[]{{ $va.UnderlyingName -}}{{ else }}{{ $va.UnderlyingName -}}{{ end }}, {{ end }}) {
 				// implemnt fuzzing test code
 			})
