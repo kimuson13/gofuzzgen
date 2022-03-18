@@ -13,6 +13,8 @@ github.com/gostaticanalysis/testutil v0.4.0 h1:nhdCmubdmDF6VEatUNjgUZBJKWRqugoIS
 github.com/hashicorp/go-version v1.2.1 h1:zEfKbn2+PDgroKdiOzqiE8rsmLqU2uwi5PB5pBJ3TkI=
 github.com/kimuson13/showfuzz v0.0.0-20220317021557-e912bef26614 h1:RiB8FZwaJKL7iYYVEXtHLB6Yk32QN1LT1uWha+vbB6Y=
 github.com/kimuson13/showfuzz v0.0.0-20220317021557-e912bef26614/go.mod h1:Hxm2ydLK9DmSNlKzpwW3TzHA+tJh9rCHWci45gIyOTA=
+github.com/kimuson13/showfuzz v1.0.1 h1:W1Zi0cpD261/ToR1Ps3tbvi7JnE7criNlU+MhQwAFVU=
+github.com/kimuson13/showfuzz v1.0.1/go.mod h1:Hxm2ydLK9DmSNlKzpwW3TzHA+tJh9rCHWci45gIyOTA=
 github.com/otiai10/copy v1.2.0 h1:HvG945u96iNadPoG2/Ja2+AUJeW5YuFQMixq9yirC+k=
 github.com/tenntenn/modver v1.0.1 h1:2klLppGhDgzJrScMpkj9Ujy3rXPUspSjAcev9tSEBgA=
 github.com/tenntenn/text/transform v0.0.0-20200319021203-7eef512accb3 h1:f+jULpRQGxTSkNYKJ51yaw6ChIqO+Je8UqsTKN/cDag=
