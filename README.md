@@ -2,13 +2,13 @@
 gofuzzgen is generate template of fuzzing test code
 ## Caution
 gofuzzgen is intended to be used for Go1.18 or higher
-# Install
+## Install
 ```
 $ go install github.com/kimuson13/gofuzzgen/cmd/gofuzzgen@latest
 ```
-# Situation to use
+## Situation to use
 When you want to generate a template code of go standard fuzzing test, `gofuzzgen` help that.
-# How to use
+## How to use
 If you want to generate fuzzing test code with a package, give the package path of interest as the first
 argument:
 ```
@@ -18,7 +18,13 @@ To generate fuzzing test code with all packages beneath the current directory:
 ```
 $ gofuzzgen ./...
 ```
-# Demo
+### Options
+- -o
+`-o` can select ouput file name.  
+If you type into "hoge" and go package name is "sample", output file name will be hoge_sampel_fuzz_test.go
+- -f
+`-f` can select only one function.
+## Demo
 If you are on a directoty like that
 ```
 $ tree .
@@ -91,17 +97,10 @@ func FuzzCanFuzzFunc(f *testing.F) {
     })
 }
 ```
-# Future Outlook
-### Some options
-you want to generate fuzz test template only one function or package sometimes.  
-So, I will implement two options.
-- -p  
-This option can select only one package.
-- -f  
-This option can select only one function.
+## Future Outlook
 ### Overwrite files
 Now, `gofuzzgen` can't over write file that already exist.
 ### No duplicated tests
 Now, `gofuzzgen` generate all functions that can fuzz test whether fuzz test exist or not.
-# License
+## License
 The source code is licensed MIT. The website content is licensed CC BY 4.0,see LICENSE.

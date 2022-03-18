@@ -20,11 +20,13 @@ type InputData struct {
 }
 
 var (
-	flagOutput string
+	flagOutput   string
+	flagFunction string
 )
 
 func init() {
 	Generator.Flags.StringVar(&flagOutput, "o", "", "output file name")
+	Generator.Flags.StringVar(&flagFunction, "f", "", "function name")
 }
 
 var Generator = &codegen.Generator{
@@ -44,6 +46,9 @@ func run(pass *codegen.Pass) error {
 	sfResults := pass.ResultOf[showfuzz.Analyzer].(*showfuzz.Results).Events
 	sfrExported := make([]showfuzz.Event, 0, len(sfResults))
 	for _, r := range sfResults {
+		if flagFunction != "" && flagFunction != r.Name {
+			continue
+		}
 		if unicode.IsUpper(rune(r.Name[0])) {
 			sfrExported = append(sfrExported, r)
 		}
