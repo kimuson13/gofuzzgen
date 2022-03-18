@@ -1,4 +1,4 @@
-# gofuzzgen
+# gofuzzgen [![Go Reference](https://pkg.go.dev/badge/github.com/kimuson13/gofuzzgen.svg)](https://pkg.go.dev/github.com/kimuson13/gofuzzgen)
 gofuzzgen is generate template of fuzzing test code
 ## Caution
 gofuzzgen is intended to be used for Go1.18 or higher
