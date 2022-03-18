@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	github.com/gostaticanalysis/codegen v0.1.0
-	github.com/kimuson13/showfuzz v0.0.0-20220317021557-e912bef26614
+	github.com/kimuson13/showfuzz v1.0.1
 )
 
 require github.com/google/go-cmp v0.5.2 // indirect
