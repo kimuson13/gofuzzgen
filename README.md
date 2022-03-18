@@ -64,7 +64,7 @@ func FuzzCanFuzzFunc(f *testing.F) {
         f.Add(tc.arg0, tc.arg1)
     }
 
-    f.Fuzz(func(t *testing.T, orig1 int, orig2 int) {
+    f.Fuzz(func(t *testing.T, orig0 int, orig1 int) {
         // implemnt fuzzing test code
     })
 
@@ -92,7 +92,7 @@ func FuzzCanFuzzFunc(f *testing.F) {
         f.Add(tc.arg0, tc.arg1)
     }
 
-    f.Fuzz(func(t *testing.T, orig1 int, orig2 int) {
+    f.Fuzz(func(t *testing.T, orig0 int, orig1 int) {
         // implemnt fuzzing test code
     })
 }
