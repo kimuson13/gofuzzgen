@@ -70,7 +70,7 @@ func run(pass *codegen.Pass) error {
 		return nil
 	}
 
-	f, err := os.Create(flagOutput)
+	f, err := os.Create(fmt.Sprintf("%s_%s_fuzz_test.go", flagOutput, pass.Pkg.Name()))
 	if err != nil {
 		return fmt.Errorf("os.Create: %w", err)
 	}
